@@ -1,0 +1,114 @@
+.weatherApp {
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 14px;
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/012/867/original/cloud.jpeg?1626186131");
+  background-size: 100%;
+  max-width: -600px;
+  display: block;
+  margin-top: 85px;
+}
+.currentCity {
+  color: whitesmoke;
+  font-size: 25px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  margin-top: -85px;
+  display: block;
+}
+.verticalLine {
+  border-left: solid rgb(170, 166, 166);
+  padding: 30px;
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: 100;
+  font-family: "Roboto", sans-serif;
+  margin-top: -85px;
+}
+.nextdays {
+  color: whitesmoke;
+  font-family: "Roboto", sans-serif;
+}
+.days {
+  background: linear-gradient(
+    44.8deg,
+    rgba(255, 136, 102, 0.67) -53.1%,
+    rgba(255, 221, 136, 0.28) 49%
+  );
+  border-radius: 10px;
+  border: 2px solid whitesmoke;
+  padding: 3px;
+  text-align: center;
+  box-shadow: inset;
+  margin: 20px;
+}
+hr {
+  border-top: 3px solid wheat;
+  margin: 26px;
+}
+.city {
+  text-align: center;
+  display: block;
+}
+.entry {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 2px;
+}
+strong {
+  font-size: 30px;
+}
+.Sunny,
+.Rainyday,
+.partCloudy {
+  font-size: 30px;
+}
+.day1 {
+  font-size: 20px;
+}
+.Name {
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  font-family: monospace;
+  color: aliceblue;
+  line-height: -20px;
+  padding: 10px;
+  margin-top: 25px;
+}
+.units {
+  font-size: small;
+  margin: 12px auto;
+  padding-top: 200px;
+}
+a {
+  color: whitesmoke;
+}
+.geolocation,
+.search_button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.geolocation {
+  color: #fff;
+  padding: 5px 20px;
+  background-color: #66bfbf;
+  border-radius: 20px;
+  margin-left: -200px;
+}
+.search_button {
+  background-color: rgb(0, 183, 255);
+  transition: all 120ms ease-in;
+  border-radius: 20px;
+  color: white;
+  padding: 5px 20px;
+  margin-left: 20px;
+}
+.search_button:hover {
+  background-color: gray;
+  border-color: gray;
+  color: black;
+  cursor: pointer;
+}
