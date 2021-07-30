@@ -1,4 +1,4 @@
-function timeStamp(event) {
+function timeStamp(formatDate) {
   let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
