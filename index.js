@@ -85,6 +85,7 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
+  HTMLTableDataCellElement.innerHTML = timeStamp(response.data.dt * 1000);
 
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
