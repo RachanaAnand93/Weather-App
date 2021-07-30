@@ -37,6 +37,11 @@ function timeStamp(event) {
   return `${currentMonth} ${today}, ${hours}:${minutes}`;
 }
 
+let detailsChange = document.querySelector("#currentDetails");
+let now = new Date();
+detailsChange.innerHTML = timeStamp(now);
+console.log(timeStamp(now));
+
 function cityDetails(event) {
   event.preventDefault();
   let townChange = document.querySelector("#city-change");
