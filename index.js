@@ -37,11 +37,6 @@ function timeStamp(event) {
   return `${currentMonth} ${today}, ${hours}:${minutes}`;
 }
 
-let detailsChange = document.querySelector("#currentDetails");
-let now = new Date();
-detailsChange.innerHTML = timeStamp(now);
-console.log(timeStamp(now));
-
 function cityDetails(event) {
   event.preventDefault();
   let townChange = document.querySelector("#city-change");
@@ -85,7 +80,9 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
-  HTMLTableDataCellElement.innerHTML = timeStamp(response.data.dt * 1000);
+  document.querySelector("#currentDetails").innerHTML = timeStamp(
+    response.data.dt * 1000
+  );
 
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
