@@ -86,9 +86,9 @@ function nowConditions(response) {
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
   document.querySelector("#currentDetails").innerHTML = timeStamp(
-    response.data.dt * 1000
+    response.data.dt
   );
-
+  console.log(response.data.dt);
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
   }
