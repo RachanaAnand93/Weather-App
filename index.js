@@ -18,23 +18,8 @@ function timeStamp(formatDate) {
   ];
   let days = now.getDay();
   let today = weeks[days];
-  let allMonth = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let months = now.getMonth();
-  let currentMonth = allMonth[months];
-  return `${currentMonth} ${today}, ${hours}:${minutes}`;
+
+  return `${today}, ${hours}:${minutes}`;
 }
 
 let detailsChange = document.querySelector("#currentDetails");
@@ -86,7 +71,7 @@ function nowConditions(response) {
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
   document.querySelector("#currentDetails").innerHTML = timeStamp(
-    response.data.dt
+    response.data.dt * 1000
   );
   console.log(response.data.dt);
   if (presentForecast.includes("clouds")) {
