@@ -74,6 +74,7 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", fahToCel);
 
 function nowConditions(response) {
+  console.log(response);
   let presentTemp = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = presentTemp;
   let presentForecast = response.data.weather[0].description;
@@ -84,6 +85,7 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
+
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
   }
@@ -102,10 +104,12 @@ function cityLookup(city) {
 }
 
 function searchEngine(event) {
-  console.log("I am here");
   event.preventDefault();
   let city = document.querySelector("#city-change").value;
   cityLookup(city);
+  if ((city.length = 0)) {
+    alert("Enter city");
+  }
 }
 
 let searchform = document.querySelector("#search-form");
