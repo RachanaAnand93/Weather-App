@@ -120,10 +120,7 @@ a {
   color: black;
   cursor: pointer;
 }
-#climate:first-letter {
-  text-transform: capitalize;
-}
-li:first-letter {
+#climate::first-letter {
   text-transform: capitalize;
 }
 .stylesNow {
