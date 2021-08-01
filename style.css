@@ -90,6 +90,7 @@ a {
   margin: 0 auto;
   text-align: center;
   margin-top: 50px;
+  border-color: transparent;
 }
 
 .geolocation {
@@ -97,7 +98,7 @@ a {
   margin-left: -380px;
   border-radius: 10px;
   padding: 0px;
-  border-color: transparent;
+  margin-top: 52px;
 }
 .search_button {
   background-color: rgb(0, 183, 255);
