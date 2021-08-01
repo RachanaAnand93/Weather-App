@@ -114,5 +114,5 @@ a {
   cursor: pointer;
 }
 #climate:first-letter {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
