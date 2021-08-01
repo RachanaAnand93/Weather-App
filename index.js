@@ -80,6 +80,9 @@ function nowConditions(response) {
   document.querySelector("#feels").innerHTML = realFeels;
 
   console.log(response.data.dt);
+}
+
+function emojiChange(response) {
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
   }
@@ -88,6 +91,11 @@ function nowConditions(response) {
   }
   if (presentForecast.includes("rain")) {
     document.querySelector("#emojis").innerHTML = "🌧";
+  }
+  if (presentForecast.includes("snow")) {
+    document.querySelector("#emojis").innerHTML = "❆";
+  } else {
+    document.querySelector("#emojis").innerHTML = "☁";
   }
 }
 
