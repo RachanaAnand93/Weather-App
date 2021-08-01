@@ -82,19 +82,11 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
-  console.log(response.data.dt);
-  if (presentForecast.includes("clouds")) {
-    document.querySelector("#emojis").innerHTML = "☁️";
-  }
-  if (presentForecast.includes("sky")) {
-    document.querySelector("#emojis").innerHTML = "☀️";
-  }
-  if (presentForecast.includes("rain")) {
-    document.querySelector("#emojis").innerHTML = "🌧";
-  }
-  if (presentForecast.includes("snow")) {
-    document.querySelector("#emojis").innerHTML = "❆";
-  }
+  let iconElement = document.querySelector("#emojis");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
