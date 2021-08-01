@@ -90,6 +90,7 @@ a {
   margin: 0 auto;
   text-align: center;
   position: fixed;
+  margin-top: -100px;
 }
 
 .geolocation {
@@ -120,5 +121,5 @@ li:first-letter {
 .stylesNow {
   font-weight: 200;
   font-size: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 130px;
 }
