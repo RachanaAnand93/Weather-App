@@ -78,7 +78,6 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
-
   console.log(response.data.dt);
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
@@ -91,8 +90,6 @@ function nowConditions(response) {
   }
   if (presentForecast.includes("snow")) {
     document.querySelector("#emojis").innerHTML = "❆";
-  } else {
-    document.querySelector("#emojis").innerHTML = "☁";
   }
 }
 
