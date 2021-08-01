@@ -98,8 +98,14 @@ a {
   margin-left: -380px;
   border-radius: 10px;
   padding: 0px;
-  margin-top: 52px;
+  margin-top: 53px;
 }
+.geolocation:hover {
+  background-color: thistle;
+  cursor: pointer;
+  transition: all 120ms ease-in;
+}
+
 .search_button {
   background-color: rgb(0, 183, 255);
   transition: all 120ms ease-in;
