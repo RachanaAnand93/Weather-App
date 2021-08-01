@@ -116,7 +116,7 @@ a {
 }
 .search_button:hover {
   background-color: gray;
-  border-color: gray;
+  border-color: transparent;
   color: black;
   cursor: pointer;
 }
