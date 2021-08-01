@@ -12,13 +12,12 @@ function timeStamp(formatDate) {
     "Monday",
     "Tuesday",
     "Wednesday",
-    "Thrusday",
+    "Thursday",
     "Friday",
     "Saturday",
   ];
   let days = now.getDay();
   let today = weeks[days];
-
   return `${today}, ${hours}:${minutes}`;
 }
 
@@ -33,13 +32,17 @@ function formatDay(timestamp) {
 let detailsChange = document.querySelector("#currentDetails");
 let now = new Date();
 detailsChange.innerHTML = timeStamp(now);
-console.log(timeStamp(now));
 
 function cityDetails(event) {
   event.preventDefault();
   let townChange = document.querySelector("#city-change");
-  let toCity = document.querySelector("#updateCity-id");
-  toCity.innerHTML = `${townChange.value}`;
+  console.log(townChange.value);
+  if (townChange.value.length === 0) alert("Please enter a city name");
+  else {
+    let toCity = document.querySelector("#updateCity-id");
+    toCity.innerHTML = capitalizeFirstLetter(`${townChange.value}`);
+    cityLookup(townChange.value);
+  }
 }
 let citySearchForm = document.querySelector("#search-form");
 citySearchForm.addEventListener("submit", cityDetails);
@@ -71,7 +74,8 @@ function nowConditions(response) {
   let presentTemp = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = presentTemp;
   let presentForecast = response.data.weather[0].description;
-  document.querySelector("#climate").innerHTML = presentForecast.toUpperCase();
+  document.querySelector("#climate").innerHTML =
+    capitalizeFirstLetter(presentForecast);
   let speedOfwind = Math.round(response.data.wind.speed);
   document.querySelector("#wind_force").innerHTML = speedOfwind;
   let humidity = Math.round(response.data.main.humidity);
@@ -92,24 +96,15 @@ function nowConditions(response) {
     document.querySelector("#emojis").innerHTML = "❆";
   }
 }
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function cityLookup(city) {
   let apiKey = "56db1fa98457edda6eb57bb6a4699df0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(nowConditions);
 }
-
-function searchEngine(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-change").value;
-  cityLookup(city);
-  if ((city.length = 0)) {
-    alert("Enter city");
-  }
-}
-
-let searchform = document.querySelector("#search-form");
-searchform.addEventListener("submit", searchEngine);
 
 //bonus points
 

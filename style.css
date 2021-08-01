@@ -120,10 +120,8 @@ a {
   color: black;
   cursor: pointer;
 }
-.caps:first-letter {
-  text-transform: uppercase;
-}
 .stylesNow {
   font-weight: 200;
-  font-size: 20px;
+  font-size: 18px;
+  margin-top: -25px;
 }
