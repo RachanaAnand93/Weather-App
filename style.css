@@ -121,7 +121,7 @@ a {
   cursor: pointer;
 }
 .caps:first-letter {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 .stylesNow {
   font-weight: 200;
