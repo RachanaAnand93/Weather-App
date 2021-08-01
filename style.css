@@ -120,7 +120,7 @@ a {
   color: black;
   cursor: pointer;
 }
-.caps::first-letter {
+.caps:first-letter {
   text-transform: capitalize;
 }
 .stylesNow {
