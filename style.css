@@ -113,6 +113,6 @@ a {
   color: black;
   cursor: pointer;
 }
-.caps-handle::first-letter {
-  text-transform: capitalize;
+div::first-letter {
+  text-transform: uppercase;
 }
