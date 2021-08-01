@@ -116,3 +116,10 @@ a {
 #climate:first-letter {
   text-transform: capitalize;
 }
+li:first-letter {
+  text-transform: capitalize;
+}
+.stylesNow {
+  font-weight: 100;
+  font-size: small;
+}
