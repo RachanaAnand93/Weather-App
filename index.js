@@ -22,6 +22,14 @@ function timeStamp(formatDate) {
   return `${today}, ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 let detailsChange = document.querySelector("#currentDetails");
 let now = new Date();
 detailsChange.innerHTML = timeStamp(now);
@@ -70,9 +78,7 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
-  document.querySelector("#currentDetails").innerHTML = timeStamp(
-    response.data.dt * 1000
-  );
+
   console.log(response.data.dt);
   if (presentForecast.includes("clouds")) {
     document.querySelector("#emojis").innerHTML = "☁️";
