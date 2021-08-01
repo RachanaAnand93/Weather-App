@@ -16,7 +16,8 @@
   margin-top: -85px;
   display: block;
 }
-.verticalLine {
+.verticalLine,
+.stylesNow {
   border-left: solid rgb(170, 166, 166);
   padding: 30px;
   color: whitesmoke;
