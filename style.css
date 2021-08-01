@@ -94,8 +94,8 @@ a {
 
 .geolocation {
   color: #fff;
-  margin-left: -330px;
-  border: none;
+  margin-left: -350px;
+  border-radius: 10px;
 }
 .search_button {
   background-color: rgb(0, 183, 255);
