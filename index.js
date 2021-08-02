@@ -35,7 +35,7 @@ detailsChange.innerHTML = timeStamp(now);
 function displayForecast(response) {
   let forecastElement = document.querySelector("#weather-forecast");
   let dailyDetails = response.data.daily;
-  console.log(dailyDetails);
+
   let forecastHTML = `<div class="row">`;
   dailyDetails.forEach(function (dailyForecast, index) {
     if (index < 5) {
@@ -70,7 +70,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "56db1fa98457edda6eb57bb6a4699df0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -116,7 +115,6 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", fahToCel);
 
 function nowConditions(response) {
-  console.log(response);
   let presentTemp = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = presentTemp;
 
@@ -154,8 +152,6 @@ function currentPosition(position) {
   let apiKey = "56db1fa98457edda6eb57bb6a4699df0";
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  console.log(lat);
-  console.log(long);
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`;
   axios.get(url).then(nowConditions);
 }
