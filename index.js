@@ -21,17 +21,60 @@ function timeStamp(formatDate) {
   return `${today}, ${hours}:${minutes}`;
 }
 
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
+function formatDay(daytimestamping) {
+  let date = new Date(daytimestamping * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
   return days[day];
 }
 
 let detailsChange = document.querySelector("#currentDetails");
 let now = new Date();
 detailsChange.innerHTML = timeStamp(now);
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let dailyDetails = response.data.daily;
+  console.log(dailyDetails);
+  let forecastHTML = `<div class="row">`;
+  dailyDetails.forEach(function (dailyForecast, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2 days">
+        <div class="weather-forecast-date">${formatDay(dailyForecast.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            dailyForecast.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="temp-max"> H: ${Math.round(
+            dailyForecast.temp.max
+          )}° </span>
+          <span class="temp-min"> L: ${Math.round(
+            dailyForecast.temp.min
+          )}° </span>
+          <p class="forecast">${dailyForecast.weather[0].description}</p>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "56db1fa98457edda6eb57bb6a4699df0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function cityDetails(event) {
   event.preventDefault();
@@ -92,7 +135,7 @@ function nowConditions(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  console.log(response.data.weather[0].icon);
+  getForecast(response.data.coord);
 }
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
