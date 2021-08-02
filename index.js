@@ -51,16 +51,19 @@ let temper = document.querySelector("#temp");
 
 function celToFah(event) {
   event.preventDefault();
-  let fahrenheit = Math.round(20 * (9 / 5) + 32);
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
   let temper = document.querySelector("#temp");
   temper.innerHTML = `${fahrenheit}`;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 function fahToCel(event) {
   event.preventDefault();
-  let celsius = Math.round((68 - 32) * (5 / 9));
   let temper = document.querySelector("#temp");
-  temper.innerHTML = `${celsius}`;
+  temper.innerHTML = Math.round(celsiusTemperature);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
@@ -73,6 +76,7 @@ function nowConditions(response) {
   console.log(response);
   let presentTemp = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = presentTemp;
+
   let presentForecast = response.data.weather[0].description;
   document.querySelector("#climate").innerHTML =
     capitalizeFirstLetter(presentForecast);
@@ -82,11 +86,13 @@ function nowConditions(response) {
   document.querySelector("#humid").innerHTML = humidity;
   let realFeels = Math.round(response.data.main.feels_like);
   document.querySelector("#feels").innerHTML = realFeels;
+  celsiusTemperature = response.data.main.temp;
   let iconElement = document.querySelector("#emojis");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  console.log(response.data.weather[0].icon);
 }
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -98,6 +104,7 @@ function cityLookup(city) {
   axios.get(apiUrl).then(nowConditions);
 }
 
+let celsiusTemperature = null;
 //bonus points
 
 function currentPosition(position) {

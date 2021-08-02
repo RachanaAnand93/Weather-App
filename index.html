@@ -51,20 +51,23 @@
           
             <div class="row">
               <div class="col currentCity">
-                <strong> <span id= "updateCity-id">Berlin</span>: <span id="emojis"> 🌧 </span> <span id ="temp"> 20</span> </strong> 
-               <span class="units">
-               <a href="#" id="celsius-link">°C</a>  |  
+                <strong> <span id= "updateCity-id">Berlin</span>:</strong> <span id ="climate">RAINY</span>
+                <br />
+                <img src ="https://ssl.gstatic.com/onebox/weather/64/rain.png" id="emojis" ></img>
+                <span id ="temp"> 20</span>
+                <span class="units">
+               <a href="#" id="celsius-link" class= "active">°C</a>  |  
                <a href="#" id="fahrenheit-link">°F</a>
                </span>
-                <br /> <span id ="climate">RAINY</span> <div class="stylesNow"> <br /> Last updated:<span id = "currentDetails"> Thru, 12:07</span></div>
+               
+               
               </div>
               <br />
-              <div class="col">
-                <div class="verticalLine">
+              <div class="col verticalLine">
                    Wind: <span id ="wind_force"> 8 </span> km/h <br />Humidity: <span id ="humid"> 90</span>%<br />Feels like: <span id ="feels"> 23</span>°c
-                </div>
+                  <br /> Last updated: <span id = "currentDetails"> Thru, 12:07</span>
               </div>
-
+            </div>  
               <hr />
               <div class="nextdays">
                 <div class="row">

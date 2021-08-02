@@ -10,12 +10,13 @@
 }
 .currentCity {
   color: whitesmoke;
-  font-size: 25px;
+  font-size: 35px;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 300;
   margin-top: -85px;
   display: block;
 }
+
 .verticalLine {
   border-left: solid rgb(170, 166, 166);
   padding: 30px;
@@ -44,19 +45,15 @@
 }
 hr {
   border-top: 3px solid wheat;
-  margin: 26px;
 }
-.city {
-  text-align: center;
-  display: block;
-}
+
 .entry {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 2px;
 }
 strong {
-  font-size: 30px;
+  font-size: 35px;
 }
 .Sunny,
 .Rainyday,
@@ -78,11 +75,13 @@ strong {
 }
 .units {
   font-size: small;
-  margin: 12px auto;
-  padding-top: 200px;
+  margin-left: 0px;
+  position: relative;
+  top: -38px;
 }
 a {
   color: whitesmoke;
+  text-decoration: none;
 }
 .geolocation,
 .search_button {
@@ -95,7 +94,7 @@ a {
 
 .geolocation {
   color: #fff;
-  margin-left: -380px;
+  margin-left: -390px;
   border-radius: 10px;
   padding: 0px;
   margin-top: 53px;
@@ -124,4 +123,19 @@ a {
   font-weight: 200;
   font-size: 18px;
   margin-top: -25px;
+}
+#emojis {
+  height: 6rem;
+  font-size: 5em;
+  position: relative;
+  top: -25px;
+}
+#temp {
+  font-size: 70px;
+  font-weight: 300;
+  margin-left: -20px;
+}
+.active {
+  color: black;
+  text-decoration: none;
 }
