@@ -78,7 +78,7 @@ function getForecast(coordinates) {
 function cityDetails(event) {
   event.preventDefault();
   let townChange = document.querySelector("#city-change");
-  console.log(townChange.value);
+  //console.log(townChange.value);
   if (townChange.value.length === 0) alert("Please enter a city name");
   else {
     let toCity = document.querySelector("#updateCity-id");
@@ -117,7 +117,8 @@ celsiusLink.addEventListener("click", fahToCel);
 function nowConditions(response) {
   let presentTemp = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = presentTemp;
-
+  let geoCity = document.querySelector("#updateCity-id");
+  geoCity = response.data.name;
   let presentForecast = response.data.weather[0].description;
   document.querySelector("#climate").innerHTML =
     capitalizeFirstLetter(presentForecast);
@@ -134,6 +135,7 @@ function nowConditions(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   getForecast(response.data.coord);
+  console.log(response.data);
 }
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -152,6 +154,7 @@ function currentPosition(position) {
   let apiKey = "56db1fa98457edda6eb57bb6a4699df0";
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
+  console.log(position);
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`;
   axios.get(url).then(nowConditions);
 }
